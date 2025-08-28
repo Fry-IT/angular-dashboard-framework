@@ -513,7 +513,7 @@ angular.module('adf')
 
 
 angular.module('adf')
-  .directive('adfWidget', ["$injector", "$q", "$log", "$uibModal", "$rootScope", "dashboard", "adfTemplatePath", function($injector, $q, $log, $uibModal, $rootScope, dashboard, adfTemplatePath) {
+  .directive('adfWidget', ["$injector", "$q", "$log", "$timeout", "$uibModal", "$rootScope", "dashboard", "adfTemplatePath", function($injector, $q, $log, $timeout, $uibModal, $rootScope, dashboard, adfTemplatePath) {
 
     controller.$inject = ["$scope"];
     return {
@@ -664,6 +664,10 @@ angular.module('adf')
         // bind reload function
         $scope.reload = function() {
           $scope.$broadcast('widgetReload');
+          $scope.message = $scope.definition.title + ' data reloaded';
+          $timeout(function() {
+            $scope.message = '';
+          }, 10000);
         };
 
         // bind edit function
@@ -1987,6 +1991,7 @@ angular.module('adf.locale')
         ADF_COMMON_APPLY: 'Apply',
         ADF_COMMON_EDIT_DASHBOARD: 'Edit dashboard',
         ADF_EDIT_DASHBOARD_STRUCTURE_LABEL: 'Structure',
+        ADF_EDIT_DASHBOARD_STRUCTURE_RADIO_SELECT_LABEL: 'Select',
         ADF_DASHBOARD_TITLE_TOOLTIP_ADD: 'Add new widget',
         ADF_DASHBOARD_TITLE_TOOLTIP_SAVE: 'Save changes',
         ADF_DASHBOARD_TITLE_TOOLTIP_EDIT_MODE: 'Enable edit mode',
@@ -2009,6 +2014,7 @@ angular.module('adf.locale')
         ADF_COMMON_APPLY: 'Använd',
         ADF_COMMON_EDIT_DASHBOARD: 'Redigera dashboard',
         ADF_EDIT_DASHBOARD_STRUCTURE_LABEL: 'Struktur',
+        ADF_EDIT_DASHBOARD_STRUCTURE_RADIO_SELECT_LABEL: 'Välja',
         ADF_DASHBOARD_TITLE_TOOLTIP_ADD: 'Lägg till ny widget',
         ADF_DASHBOARD_TITLE_TOOLTIP_SAVE: 'Spara förändringar',
         ADF_DASHBOARD_TITLE_TOOLTIP_EDIT_MODE: 'Slå på redigeringsläge',
