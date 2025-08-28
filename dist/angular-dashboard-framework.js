@@ -29,47 +29,7 @@ angular.module('adf', ['adf.provider', 'adf.locale', 'ui.bootstrap'])
   .value('adfTemplatePath', '../src/templates/')
   .value('rowTemplate', '<adf-dashboard-row row="row" adf-model="adfModel" options="options" edit-mode="editMode" ng-repeat="row in column.rows" />')
   .value('columnTemplate', '<adf-dashboard-column column="column" adf-model="adfModel" options="options" edit-mode="editMode" ng-repeat="column in row.columns" />')
-  .value('adfVersion', '0.13.0-SNAPSHOT');
-
-/*
-* The MIT License
-*
-* Copyright (c) 2015, Sebastian Sdorra
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
-
-
-/* global angular */
-angular.module('adf')
-  .filter('adfOrderByObjectKey', ["$filter", function($filter) {
-
-
-    return function(item, key){
-      var array = [];
-      angular.forEach(item, function(value, objectKey){
-        value[key] = objectKey;
-        array.push(value);
-      });
-      return $filter('orderBy')(array, key);
-    };
-  }]);
+  .value('adfVersion', '0.12.3');
 
 
 /*
@@ -102,7 +62,7 @@ angular.module('adf')
  */
 angular.module('adf')
   .factory('widgetService', ["$http", "$q", "$sce", "$templateCache", "dashboard", function($http, $q, $sce, $templateCache, dashboard) {
-
+    
 
     function parseUrl(url) {
       var parsedUrl = url;
@@ -177,7 +137,7 @@ angular.module('adf')
 
 angular.module('adf')
   .factory('adfUtilsService', function () {
-
+    
 
     var service = {
       stringToBoolean: stringToBoolean,
@@ -241,7 +201,7 @@ angular.module('adf')
 
 angular.module('adf')
   .factory('adfStructurePreviewService', function () {
-
+    
 
     var service = {
       adjustRowHeight: adjustRowHeight
@@ -292,7 +252,7 @@ angular.module('adf')
 
 angular.module('adf')
   .factory('adfDashboardService', ["$log", "dashboard", "$rootScope", function ($log, dashboard, $rootScope) {
-
+    
 
     var service = {
       changeStructure: changeStructure,
@@ -484,6 +444,46 @@ angular.module('adf')
       });
       return categories;
     }
+  }]);
+
+/*
+* The MIT License
+*
+* Copyright (c) 2015, Sebastian Sdorra
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+
+/* global angular */
+angular.module('adf')
+  .filter('adfOrderByObjectKey', ["$filter", function($filter) {
+    
+
+    return function(item, key){
+      var array = [];
+      angular.forEach(item, function(value, objectKey){
+        value[key] = objectKey;
+        array.push(value);
+      });
+      return $filter('orderBy')(array, key);
+    };
   }]);
 
 /*
@@ -1048,7 +1048,7 @@ angular.module('adf')
 
 angular.module('adf')
   .directive('adfDashboard', ["$rootScope", "$log", "$timeout", "$uibModal", "dashboard", "adfTemplatePath", "adfDashboardService", "adfUtilsService", function ($rootScope, $log, $timeout, $uibModal, dashboard, adfTemplatePath, adfDashboardService, adfUtilsService) {
-
+    
 
     controller.$inject = ["$scope"];
     return {
@@ -1333,7 +1333,7 @@ angular.module('adf')
 /* global angular */
 angular.module('adf')
   .directive('adfDashboardRow', ["$compile", "adfTemplatePath", "columnTemplate", function ($compile, adfTemplatePath, columnTemplate) {
-
+    
 
     return {
       restrict: 'E',
@@ -1386,7 +1386,7 @@ angular.module('adf')
 /* global angular */
 angular.module('adf')
   .directive('adfDashboardColumn', ["$log", "$compile", "$rootScope", "adfTemplatePath", "rowTemplate", "dashboard", function ($log, $compile, $rootScope, adfTemplatePath, rowTemplate, dashboard) {
-
+    
 
     return {
       restrict: 'E',
