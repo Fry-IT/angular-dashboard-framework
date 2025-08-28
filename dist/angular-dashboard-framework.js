@@ -59,7 +59,7 @@ angular.module('adf', ['adf.provider', 'adf.locale', 'ui.bootstrap'])
 /* global angular */
 angular.module('adf')
   .filter('adfOrderByObjectKey', ["$filter", function($filter) {
-    
+
 
     return function(item, key){
       var array = [];
@@ -102,7 +102,7 @@ angular.module('adf')
  */
 angular.module('adf')
   .factory('widgetService', ["$http", "$q", "$sce", "$templateCache", "dashboard", function($http, $q, $sce, $templateCache, dashboard) {
-    
+
 
     function parseUrl(url) {
       var parsedUrl = url;
@@ -177,7 +177,7 @@ angular.module('adf')
 
 angular.module('adf')
   .factory('adfUtilsService', function () {
-    
+
 
     var service = {
       stringToBoolean: stringToBoolean,
@@ -241,7 +241,7 @@ angular.module('adf')
 
 angular.module('adf')
   .factory('adfStructurePreviewService', function () {
-    
+
 
     var service = {
       adjustRowHeight: adjustRowHeight
@@ -292,7 +292,7 @@ angular.module('adf')
 
 angular.module('adf')
   .factory('adfDashboardService', ["$log", "dashboard", "$rootScope", function ($log, dashboard, $rootScope) {
-    
+
 
     var service = {
       changeStructure: changeStructure,
@@ -1048,7 +1048,7 @@ angular.module('adf')
 
 angular.module('adf')
   .directive('adfDashboard', ["$rootScope", "$log", "$timeout", "$uibModal", "dashboard", "adfTemplatePath", "adfDashboardService", "adfUtilsService", function ($rootScope, $log, $timeout, $uibModal, dashboard, adfTemplatePath, adfDashboardService, adfUtilsService) {
-    
+
 
     controller.$inject = ["$scope"];
     return {
@@ -1333,7 +1333,7 @@ angular.module('adf')
 /* global angular */
 angular.module('adf')
   .directive('adfDashboardRow', ["$compile", "adfTemplatePath", "columnTemplate", function ($compile, adfTemplatePath, columnTemplate) {
-    
+
 
     return {
       restrict: 'E',
@@ -1386,7 +1386,7 @@ angular.module('adf')
 /* global angular */
 angular.module('adf')
   .directive('adfDashboardColumn', ["$log", "$compile", "$rootScope", "adfTemplatePath", "rowTemplate", "dashboard", function ($log, $compile, $rootScope, adfTemplatePath, rowTemplate, dashboard) {
-    
+
 
     return {
       restrict: 'E',

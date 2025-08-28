@@ -1,37 +1,37 @@
 <div class="panel-title widget-title">
-  <h2>{{definition.title}}</h2>
+  <h2 id="{{definition.wid}}-title">{{definition.title}}</h2>
   <span class="edit-mode">
-    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_REFRESH') }}" ng-if="widget.reload" ng-click="reload()">
-      <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_REFRESH') }}</span>
+    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_REFRESH') }}" ng-if="widget.reload" ng-click="reload()" aria-labelledby="{{definition.wid}}-tooltip-refresh {{definition.wid}}-title">
+      <span hidden id="{{definition.wid}}-tooltip-refresh">{{ translate('ADF_WIDGET_TOOLTIP_REFRESH') }}</span>
       <i class="glyphicon glyphicon-refresh" aria-hidden="true"></i>
     </button>
     <!-- change widget location -->
-    <button title="{{ translate('ADF_WIDGET_TOOLTIP_MOVE') }}" class="adf-move btn-wo-border" ng-if="editMode">
-      <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_MOVE') }}</span>
+    <button title="{{ translate('ADF_WIDGET_TOOLTIP_MOVE') }}" class="adf-move btn-wo-border" ng-if="editMode" aria-labelledby="{{definition.wid}}-tooltip-move {{definition.wid}}-title">
+      <span hidden id="{{definition.wid}}-tooltip-move">{{ translate('ADF_WIDGET_TOOLTIP_MOVE') }}</span>
       <i class="glyphicon glyphicon-move" aria-hidden="true"></i>
     </button>
     <!-- collapse -->
-    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_COLLAPSE') }}" ng-show="options.collapsible && !widgetState.isCollapsed" ng-click="widgetState.isCollapsed = !widgetState.isCollapsed">
-      <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_COLLAPSE') }}</span>
+    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_COLLAPSE') }}" ng-show="options.collapsible && !widgetState.isCollapsed" ng-click="widgetState.isCollapsed = !widgetState.isCollapsed" aria-labelledby="{{definition.wid}}-tooltip-collapse {{definition.wid}}-title">
+      <span hidden id="{{definition.wid}}-tooltip-collapse">{{ translate('ADF_WIDGET_TOOLTIP_COLLAPSE') }}</span>
       <i class="glyphicon glyphicon-minus" aria-hidden="true"></i>
     </button>
     <!-- expand -->
-    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_EXPAND') }}" ng-show="options.collapsible && widgetState.isCollapsed" ng-click="widgetState.isCollapsed = !widgetState.isCollapsed">
-      <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_EXPAND') }}</span>
+    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_EXPAND') }}" ng-show="options.collapsible && widgetState.isCollapsed" ng-click="widgetState.isCollapsed = !widgetState.isCollapsed" aria-labelledby="{{definition.wid}}-tooltip-expand {{definition.wid}}-title">
+      <span hidden id="{{definition.wid}}-tooltip-expand">{{ translate('ADF_WIDGET_TOOLTIP_EXPAND') }}</span>
       <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
     </button>
     <!-- open edit mode -->
-    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_EDIT') }}" ng-click="edit()" ng-if="editMode">
-      <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_EDIT') }}</span>
+    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_EDIT') }}" ng-click="edit()" ng-if="editMode" aria-labelledby="{{definition.wid}}-tooltip-edit {{definition.wid}}-title">
+      <span hidden id="{{definition.wid}}-tooltip-edit">{{ translate('ADF_WIDGET_TOOLTIP_EDIT') }}</span>
       <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
     </button>
-    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_FULLSCREEN') }}" ng-click="openFullScreen()" ng-show="options.maximizable">
-     <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_FULLSCREEN') }}</span>
+    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_FULLSCREEN') }}" ng-click="openFullScreen()" ng-show="options.maximizable" aria-labelledby="{{definition.wid}}-tooltip-fullscreen {{definition.wid}}-title">
+     <span hidden id="{{definition.wid}}-tooltip-fullscreen">{{ translate('ADF_WIDGET_TOOLTIP_FULLSCREEN') }}</span>
       <i class="glyphicon glyphicon-fullscreen" aria-hidden="true"></i>
     </button>
     <!-- remove widget -->
-    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_REMOVE') }}" ng-click="remove()" ng-if="editMode">
-      <span class="sr-only">{{ translate('ADF_WIDGET_TOOLTIP_REMOVE') }}</span>
+    <button class="btn-wo-border" title="{{ translate('ADF_WIDGET_TOOLTIP_REMOVE') }}" ng-click="remove()" ng-if="editMode" aria-labelledby="{{definition.wid}}-tooltip-remove {{definition.wid}}-title">
+      <span hidden id="{{definition.wid}}-tooltip-remove">{{ translate('ADF_WIDGET_TOOLTIP_REMOVE') }}</span>
       <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
     </button>
   </span>
