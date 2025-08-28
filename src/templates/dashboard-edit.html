@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <button type="button" class="close" ng-click="closeDialog()" aria-hidden="true">&times;</button>
+  <button type="button" class="close" ng-click="closeDialog()" aria-label="{{ translate('ADF_COMMON_CLOSE') }}">&times;</button>
   <h4 class="modal-title" ng-bind="translate('ADF_COMMON_EDIT_DASHBOARD')">Edit Dashboard</h4>
 </div>
 <div class="modal-body">
@@ -16,6 +16,7 @@
             <div class="row">
               <div class="col-sm-2">
                 <label>
+                  <span class="sr-only">{{ translate('ADF_EDIT_DASHBOARD_STRUCTURE_RADIO_SELECT_LABEL') }} {{key}}</span>
                   <input type="radio" value="{{key}}" ng-model="model.structure" ng-change="changeStructure(key, structure)">
                 </label>
               </div>
