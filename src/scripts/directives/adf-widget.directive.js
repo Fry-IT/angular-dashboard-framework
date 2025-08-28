@@ -25,7 +25,7 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfWidget', function($injector, $q, $log, $uibModal, $rootScope, dashboard, adfTemplatePath) {
+  .directive('adfWidget', function($injector, $q, $log, $timeout, $uibModal, $rootScope, dashboard, adfTemplatePath) {
 
     return {
       replace: true,
@@ -175,6 +175,10 @@ angular.module('adf')
         // bind reload function
         $scope.reload = function() {
           $scope.$broadcast('widgetReload');
+          $scope.message = $scope.definition.title + ' data reloaded';
+          $timeout(function() {
+            $scope.message = '';
+          }, 10000);
         };
 
         // bind edit function
